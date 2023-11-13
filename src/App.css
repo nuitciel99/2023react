@@ -24,6 +24,11 @@ li{list-style: none;}
   width: 300px;
   height: 300px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+
+  display: flex;
+  /* flex는 기본 가로 */
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .myP{
@@ -78,3 +83,13 @@ li{list-style: none;}
 .lists > li:hover{
   background: skyblue;
 }
+
+.btnWrap{
+  display: flex;
+  justify-content: end;
+}
+
+.btnWrap button{
+  padding: 5px 15px;
+}
+
