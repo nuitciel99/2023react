@@ -1,55 +1,48 @@
 import { useState } from 'react';
 import './App.css'
-import Modal from './components/Modal.jsx';
+import {vData, vData1} from './data.js'
 
 function App() {
-  const [vData, setVData] = useState([
-    "1. Lorem ipsum dolor sit amet.",
-    "2. Consequatur culpa totam laudantium earum!",
-    "3. Corrupti a eveniet ipsam fugit!"
-  ])
-  const [num, setNum] = useState(0)
-  const [view, setView] = useState(false)
-  const [textData, setTextData] = useState("")
+  const [viewData, setViewData] = useState(vData)
+  const [viewData1, setViewData1] = useState(vData1)
 
-  const listView = function(num){
-    setNum(num)
-    setView(true)
-  }
 
-  const handleClose = ()=>{
-    setView(false)
-  }
   return(
     <div className="App">
-      <div className='num'>
-        {num}
-      </div>
-      <ul className='lists'>
       {
-        vData.map(function(item, i){
+        viewData.map(function(item){
           return(
             <>
-              <li onClick={()=>{listView(i)}}>{item}</li>
+            <div style={ {display:"flex"} }>
+              <div>{item.id}</div>
+              <div>{item.title}</div>
+              <div>{item.content}</div>
+              <div className='avatar'>
+                <img src={`./img/${item.img}`} alt='' />
+              </div>
+            </div>
             </>
           )
         })
       }
-      </ul>
-      
       {
-        view == true ? <Modal vContent={vData[num]} vNum={num} onClose={handleClose} /> : null
+        viewData1.map(function(item){
+          return(
+            <>
+            <div style={ {display:"flex"} }>
+              <div>{item.id}</div>
+              <div>{item.title}</div>
+              <div>{item.content}</div>
+              <div className='avatar'>
+                <img src={`./img/${item.img}`} alt='' />
+              </div>
+            </div>
+            </>
+          )
+        })
       }
-      {textData}<br />
-      <input type="text" onChange={(e)=>{setTextData(e.target.value)}} value={textData} />
-      <button onClick={()=>{
-        let copy = [...vData]
-        copy.unshift(textData)
-        console.log(copy)
-        setVData(copy)
-      }}>Input</button>
-      <button onClick={()=>{setTextData('')}}>Reset</button>
 
+      {/* <img src='./img/img01.png' /> */}
     </div>
   )
 }

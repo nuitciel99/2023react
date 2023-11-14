@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import './App.css'
 
-import ModalView from './components/ModalView.jsx';
+import ModalView from '../components/ModalView.jsx';
 function App() {
   const [num, setNum] = useState(0)
   const [data, setData] = useState([
