@@ -1,74 +1,51 @@
 import { useState } from 'react';
 import './App.css'
+import Modal from './components/Modal.jsx';
 
-import ModalView from './components/ModalView.jsx';
 function App() {
-  const [num, setNum] = useState(0)
-  const [data, setData] = useState([
+  const [vData, setVData] = useState([
     "1. Lorem ipsum dolor sit amet.",
-    "2. Lorem ipsum dolor sit amet consectetur adipisicing elit.",
-    "3. Lorem ipsum dolor sit amet, consectetur adipisicing."
+    "2. Consequatur culpa totam laudantium earum!",
+    "3. Corrupti a eveniet ipsam fugit!"
   ])
-  const [vModal, setVModal] = useState(false)
+  const [num, setNum] = useState(0)
+  const [view, setView] = useState(false)
 
-  const openList = (i)=>{
-    setNum(i)
-    setVModal(true)
+  const listView = function(num){
+    setNum(num)
+    setView(true)
   }
 
   const handleClose = ()=>{
-    setVModal(false)
+    setView(false)
   }
-
   return(
     <div className="App">
-      {num}
-      <ul className="lists">
-        {
-          data.map(function(item, i){
-            return(
-              <>
-                <li onClick={()=>{openList(i)}}>{item}</li>
-              </>
-            )
-          })
-        }
-      </ul>
-      <button onClick={()=>{setVModal(!vModal)}}>view</button>
-
+      <div className='num'>
+        {num}
+      </div>
+      <ul className='lists'>
       {
-        vModal == true ? <Modal rData = {data} rNum = {num} onClose = {handleClose} /> : null
+        vData.map(function(item, i){
+          return(
+            <>
+              <li onClick={()=>{listView(i)}}>{item}</li>
+            </>
+          )
+        })
+      }
+      </ul>
+      
+      {
+        view == true ? <Modal vContent={vData[num]} vNum={num} onClose={handleClose} /> : null
       }
 
+      <input type="text" />
+
     </div>
   )
 }
 
-// function Modal(props){
-//   return (
-//     <div className="modal">
-//       <h3>Hi</h3>
-//       <p>{props.rData[props.rNum]}</p>
-//       <div className='btnWrap'>
-//         <button>close</button>
-//       </div>
-//     </div>
-//   )
-// }
 
-function Modal({rData, rNum, onClose}){
-  return (
-    <div className="modal">
-      <div className='modalBoby'>
-        <h3>Hi</h3>
-        <p>{rData[rNum]}</p>
-      </div>
-      
-      <div className='btnWrap'>
-        <button onClick={onClose}>close</button>
-      </div>
-    </div>
-  )
-}
 
 export default App;
