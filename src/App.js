@@ -10,6 +10,7 @@ function App() {
   ])
   const [num, setNum] = useState(0)
   const [view, setView] = useState(false)
+  const [textData, setTextData] = useState("")
 
   const listView = function(num){
     setNum(num)
@@ -39,8 +40,15 @@ function App() {
       {
         view == true ? <Modal vContent={vData[num]} vNum={num} onClose={handleClose} /> : null
       }
-
-      <input type="text" />
+      {textData}<br />
+      <input type="text" onChange={(e)=>{setTextData(e.target.value)}} value={textData} />
+      <button onClick={()=>{
+        let copy = [...vData]
+        copy.unshift(textData)
+        console.log(copy)
+        setVData(copy)
+      }}>Input</button>
+      <button onClick={()=>{setTextData('')}}>Reset</button>
 
     </div>
   )
