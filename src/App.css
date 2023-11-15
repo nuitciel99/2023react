@@ -112,6 +112,29 @@ li{list-style: none;}
 }
 
 .visualWrap{
-  background: skyblue;
+  background: gray;
   
+}
+
+.contentWrap01{
+  background: papayawhip;
+}
+
+.dot{
+  position: relative;
+
+}
+/* after/before 자식의 앞뒤 */
+.dot::after{
+  content: '';
+  width: 10px;
+  height: 10px;
+  display: block;
+  background-color: #000;
+  margin: 10px auto;
+  border-radius: 50%;
+  position: absolute;
+  top: 3px;
+  left: 50%;
+  transform: translateX(-700%);
 }

@@ -1,12 +1,12 @@
 import { useState } from 'react';
 import './App.css'
-import {vData, vData1} from './data.js'
+import {vData} from './data.js'
 import {Button, Container, Row, Col, Navbar, Nav, NavDropdown, Card} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
-  const [viewData, setViewData] = useState(vData)
-  const [viewData1, setViewData1] = useState(vData1)
+
+  const [myData, setMyData] = useState(vData)
 
 
   return(
@@ -36,58 +36,41 @@ function App() {
     </div>
 
     <Container>
+      <div className='text-center mb-3'>
+        <h3 className='title dot'>GALLERY</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
+      </div>
       <Row>
-        <Col sm={6} md={3} className='mb-2'>
-        <Card>
-          <Card.Img variant="top" src="./img/img01.png" />
-            <Card.Body>
-              <Card.Title>Card Title</Card.Title>
-              <Card.Text>
-                Lorem, ipsum dolor.
-              </Card.Text>
-            </Card.Body>
-        </Card>
-        </Col>
-        <Col sm={6} md={3}>
-        <Card>
-          <Card.Img variant="top" src="./img/img02.png" />
-            <Card.Body>
-              <Card.Title>Card Title</Card.Title>
-              <Card.Text>
-                Lorem, ipsum dolor.
-              </Card.Text>
-            </Card.Body>
-        </Card>
-        </Col>
-        <Col sm={6} md={3}>
-        <Card>
-          <Card.Img variant="top" src="./img/img03.png" />
-            <Card.Body>
-              <Card.Title>Card Title</Card.Title>
-              <Card.Text>
-                Lorem, ipsum dolor.
-              </Card.Text>
-            </Card.Body>
-        </Card>
-        </Col>
-        <Col sm={6} md={3}>
-        <Card>
-          <Card.Img variant="top" src="./img/img04.png" />
-            <Card.Body>
-              <Card.Title>Card Title</Card.Title>
-              <Card.Text>
-                Lorem, ipsum dolor.
-              </Card.Text>
-            </Card.Body>
-        </Card>
-        </Col>
+        {
+          myData.map(function(item, i){
+            return <CardView product={myData[i]} />
+          })
+        }
+        
       </Row>
     </Container>
-      
+
+
     </div>
   )
 }
 
-
+function CardView({product}){
+  return(
+    <>
+      <Col sm={6} md={3} className='mb-2'>
+        <Card>
+          <Card.Img variant="top" src={`./img/${product.img}`} />
+            <Card.Body>
+              <Card.Title>{product.title}</Card.Title>
+              <Card.Text>
+                {product.content}
+              </Card.Text>
+            </Card.Body>
+        </Card>
+        </Col>
+    </>
+  )
+}
 
 export default App;
