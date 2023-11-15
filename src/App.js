@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import './App.css'
 import {vData, vData1} from './data.js'
+import {Button, Container, Row, Col, Navbar, Nav, NavDropdown, Card} from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   const [viewData, setViewData] = useState(vData)
@@ -9,40 +11,79 @@ function App() {
 
   return(
     <div className="App">
-      {
-        viewData.map(function(item){
-          return(
-            <>
-            <div style={ {display:"flex"} }>
-              <div>{item.id}</div>
-              <div>{item.title}</div>
-              <div>{item.content}</div>
-              <div className='avatar'>
-                <img src={`./img/${item.img}`} alt='' />
-              </div>
-            </div>
-            </>
-          )
-        })
-      }
-      {
-        viewData1.map(function(item){
-          return(
-            <>
-            <div style={ {display:"flex"} }>
-              <div>{item.id}</div>
-              <div>{item.title}</div>
-              <div>{item.content}</div>
-              <div className='avatar'>
-                <img src={`./img/${item.img}`} alt='' />
-              </div>
-            </div>
-            </>
-          )
-        })
-      }
+      <Navbar expand="lg" className="bg-body-tertiary">
+      <Container>
+        <Navbar.Brand href="#home">LOGO</Navbar.Brand>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="ms-auto">
+            {/* margin: 0 auto >>> margin ml-auto mr-auto >>> center */}
+            {/* margin-left:auto : 오른쪽 정렬 */}
+            <Nav.Link href="#home">Home</Nav.Link>
+            <Nav.Link href="#link">COMPANY</Nav.Link>
+            <Nav.Link href="#link">PRODUCT</Nav.Link>
+            <Nav.Link href="#link">BOARD</Nav.Link>
+          </Nav>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
+    <div className='visualWrap mb-3'>
+      <Container className='py-4 text-white text-center'>
+        <h3>Lorem, ipsum dolor.</h3>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Est, neque.</p>
 
-      {/* <img src='./img/img01.png' /> */}
+      </Container>
+    </div>
+
+    <Container>
+      <Row>
+        <Col sm={6} md={3} className='mb-2'>
+        <Card>
+          <Card.Img variant="top" src="./img/img01.png" />
+            <Card.Body>
+              <Card.Title>Card Title</Card.Title>
+              <Card.Text>
+                Lorem, ipsum dolor.
+              </Card.Text>
+            </Card.Body>
+        </Card>
+        </Col>
+        <Col sm={6} md={3}>
+        <Card>
+          <Card.Img variant="top" src="./img/img02.png" />
+            <Card.Body>
+              <Card.Title>Card Title</Card.Title>
+              <Card.Text>
+                Lorem, ipsum dolor.
+              </Card.Text>
+            </Card.Body>
+        </Card>
+        </Col>
+        <Col sm={6} md={3}>
+        <Card>
+          <Card.Img variant="top" src="./img/img03.png" />
+            <Card.Body>
+              <Card.Title>Card Title</Card.Title>
+              <Card.Text>
+                Lorem, ipsum dolor.
+              </Card.Text>
+            </Card.Body>
+        </Card>
+        </Col>
+        <Col sm={6} md={3}>
+        <Card>
+          <Card.Img variant="top" src="./img/img04.png" />
+            <Card.Body>
+              <Card.Title>Card Title</Card.Title>
+              <Card.Text>
+                Lorem, ipsum dolor.
+              </Card.Text>
+            </Card.Body>
+        </Card>
+        </Col>
+      </Row>
+    </Container>
+      
     </div>
   )
 }
