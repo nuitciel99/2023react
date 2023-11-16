@@ -148,3 +148,30 @@ li{list-style: none;}
   transform: translate(-10px, -10px);
   box-shadow: 20px 20px 10px rgba(0, 0, 0, 0.3);
 }
+
+.banner{
+  height: 400px;
+}
+
+.icon{
+  width: 70px;
+  height: 70px;
+  background: skyblue;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.banner img{
+  position: absolute;
+  
+}
+
+/* background-image */
+.banWrap{
+  background-image: url(./assets/img/bannerBg01.png);
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+}

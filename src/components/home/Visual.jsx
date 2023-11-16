@@ -1,6 +1,6 @@
 import {Button, Container, Navbar, Nav, NavDropdown, Offcanvas} from 'react-bootstrap';
 
-function Visual(){
+function VisualView(){
     return(
         <div className='visualWrap mb-3'>
             <Container className='py-4 text-white text-center'>
@@ -12,4 +12,4 @@ function Visual(){
     )
 }
 
-export default Visual;
+export default VisualView;
