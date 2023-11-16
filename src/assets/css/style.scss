@@ -1,0 +1,18 @@
+$primary_color: #333;
+$shadow:10px 10px 10px rgba(0,0,0,0.3);
+
+.boxWrap{
+    color: $primary_color;
+    font-size: 2em;
+    .box{
+        background: pink;
+        width: 100px;
+        height: 100px;
+        box-shadow: $shadow;
+        position: absolute;
+        z-index: 100000;
+    }
+    &.active{
+        background: red;
+    }
+}

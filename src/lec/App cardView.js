@@ -1,9 +1,8 @@
 import { useState } from 'react';
 import './App.css'
-import {vData} from './data.js'
+import {vData} from '../data.js'
 import {Button, Container, Row, Col, Navbar, Nav, NavDropdown, Card, Offcanvas} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-// import "./assets/css/style.scss"
 
 function App() {
   const [show, setShow] = useState(false);
@@ -15,12 +14,6 @@ function App() {
 
   return(
     <div className="App">
-      {/* <div className="boxWrap active">
-        test
-        <div className="box">
-          box
-        </div>
-      </div> */}
       <Navbar expand="lg" className="bg-body-tertiary">
       <Container>
         <Navbar.Brand href="#home">LOGO</Navbar.Brand>
@@ -82,7 +75,7 @@ function CardView({product}){
   return(
     <>
       <Col sm={6} md={3} className='mb-2'>
-        <Card className='card'>
+        <Card>
           <Card.Img variant="top" src={`./img/${product.img}`} />
             <Card.Body>
               <Card.Title>{product.title}</Card.Title>
