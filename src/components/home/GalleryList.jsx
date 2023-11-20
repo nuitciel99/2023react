@@ -8,19 +8,19 @@ function GalleryList(){
 
     return(
         <Container className='mb-2 mb-md-5'>
-      <div className='text-center mb-3'>
-        <h3 className='title dot'>GALLERY</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
-      </div>
-      <Row>
-        {
-          myData.map(function(item, i){
-            return <CardView product={myData[i]} />
-          })
-        }
-        
-      </Row>
-    </Container>
+            <div className='text-center mb-3'>
+                <h3 className='title dot'>GALLERY</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
+            </div>
+            <Row>
+                {
+                myData.map(function(item, i){
+                    return <CardView product={myData[i]} />
+                })
+                }
+                
+            </Row>
+        </Container>
     )
 }
 
@@ -37,7 +37,7 @@ function CardView({product}){
                 </Card.Text>
               </Card.Body>
           </Card>
-          </Col>
+        </Col>
       </>
     )
   }
