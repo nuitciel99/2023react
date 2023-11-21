@@ -1,50 +1,27 @@
 import { useState } from 'react';
-import './App.css'
-import './view.scss'
-import {Button, Container, Row, Col, Navbar, Nav, NavDropdown, Card, Offcanvas} from 'react-bootstrap';
-import 'bootstrap/dist/css/bootstrap.min.css';
-// import "./assets/css/style.scss"
-
-import NavBar from './components/NavBar.jsx';
-import Visual from './components/home/Visual.jsx';
-import GalleryList from './components/home/GalleryList.jsx';
-import Content from './components/home/Content.jsx';
-import Banner from './components/Banner.jsx';
-import Footer from './components/Footer.jsx';
+import './style.scss'
+import {Routes, Route, Link, NavLink} from 'react-router-dom'
 
 function App() {
-  
-  const [isActive, setIsActive] = useState(false)
-
-  function boxView(){
-    // alert("test")
-    setIsActive(!isActive)
-    // !isActive : !true : false
-  }
-
+  const [isActive, setIsActive] = useState(false);  
   return(
+
     <div className="App">
-
-      <NavBar />
-      <Visual />
-      <GalleryList />
-      <Content />
-      <Banner />
-      <Footer />
-
-      <div className={`boxWrap ${ isActive ? 'active' : '' }`} onClick={boxView}>
-        <div className="bar start"></div>
-        <div className="bar middle"></div>
-        <div className="bar end"></div>
-      </div>
-
-      <div className={`bgWrap ${ isActive ? 'view' : '' }`} onClick={boxView}>
-        <div className="box">
-          <h3>view</h3>
-        </div>
-      </div>
-    
-
+      <nav className='header container'>
+        <h1 className='logo'>COM</h1>
+        <ul className='menu'>
+          <li><NavLink to="/" >Home</NavLink></li>
+          <li><NavLink to="/company">Company</NavLink></li>
+          <li><NavLink to='/product'>Product</NavLink></li>
+          <li><NavLink to='/community'>Community</NavLink></li>
+        </ul>
+      </nav>
+      <Routes>
+        <Route path='/' element={<div className='container h100 primary'>Main Page</div>}></Route>
+        <Route path='/company' element={<div className='container h200 bg com'>Introduction</div>}></Route>
+        <Route path='/product' element={<div className='container h200 bg pro'>Introduction Of Product</div>}></Route>
+        <Route path='/community' element={<div className='container h200 bg comm'>Community</div>}></Route>
+      </Routes>
     </div>
   )
 }

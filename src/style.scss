@@ -1,0 +1,64 @@
+$primary:#f333;
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+ul,li{
+    list-style: none;
+}
+
+a:link, a:visited{
+    text-decoration: none;
+    color: #333;
+}
+.container{
+    width: 1220px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &.bg{
+        background-color: skyblue;
+        border-radius: 10px;
+        background-size: cover;
+        background-position: center;
+        &.com{
+            background-color: #008b6b;
+            color: white;
+        }
+        &.comm{
+            background-color: gold;
+        }
+    }
+}
+.header{
+    display: flex;
+}
+
+.menu{
+    display: flex;
+    li{
+        a{
+            display: block;
+            margin-left: auto;
+        }
+        a.active{
+            background: pink;
+        }
+        padding: 10px 15px;
+    }
+    margin-left: auto;
+}
+
+.primary{
+    background: $primary;
+}
+.h100{
+    height: 100px !important;
+}
+.h200{
+    height: 200px !important;
+}
