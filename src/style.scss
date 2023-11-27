@@ -1,4 +1,4 @@
-$primary:#f333;
+$primary:linear-gradient(90deg, #A1C4FD 0%, #C2E9FB 100%);
 
 *{
     margin: 0;
@@ -17,9 +17,12 @@ a:link, a:visited{
 .container{
     width: 1220px;
     margin: 0 auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+
+    &.flex-center{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
     &.bg{
         background-color: skyblue;
         border-radius: 10px;
@@ -31,6 +34,29 @@ a:link, a:visited{
         }
         &.comm{
             background-color: gold;
+        }
+    }
+    .visualProduct{
+        display: flex;
+        gap: 10px;
+        li{
+            width: 25%;
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+
+            img{display: block; width: 100%;}
+            a{
+                display: block;
+                background: skyblue;
+            }
+            .bodyWrap{
+                position: absolute;
+                bottom: 10px;
+                background: linear-gradient(147deg, #CD9CF2 -1.43%, #F6F3FF 103.36%);
+                width: 100%;
+                padding: 5px 10px;
+            }
         }
     }
 }
@@ -62,3 +88,7 @@ a:link, a:visited{
 .h200{
     height: 200px !important;
 }
+
+
+
+

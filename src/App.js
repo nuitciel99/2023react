@@ -1,26 +1,38 @@
-import { useState } from 'react';
-import './style.scss'
+import { useEffect, useState } from 'react';
+import './App.css'
+import axios from 'axios';
 import {Routes, Route, Link, NavLink} from 'react-router-dom'
+import MainPage from './components/product/MainPage';
+import ViewPosts from './components/posts/ViewPosts';
 
 function App() {
-  const [isActive, setIsActive] = useState(false);  
+  // useEffect(function(){})
+  useEffect(()=>{
+    setTimeout(()=>{setBtn(false)},3000);
+    axios.get('https://jsonplaceholder.typicode.com/posts')
+    .then((res)=>{
+      console.log(res.data);
+      setUserData(res.data)
+    })
+    .catch((error)=>{
+      console.log(error);
+    })
+  },[])
+  const [btn, setBtn] = useState(true)
+  const [userData, setUserData] = useState([])
+  
   return(
 
     <div className="App">
-      <nav className='header container'>
-        <h1 className='logo'>COM</h1>
-        <ul className='menu'>
-          <li><NavLink to="/" >Home</NavLink></li>
-          <li><NavLink to="/company">Company</NavLink></li>
-          <li><NavLink to='/product'>Product</NavLink></li>
-          <li><NavLink to='/community'>Community</NavLink></li>
-        </ul>
-      </nav>
+      <div className={`box ${ btn ? "view" : ""}`}>
+        Hello
+      </div>
+
+      <button onClick={()=>{setBtn(!btn)}}>Input</button>
+      <a href="/posts">DATA</a> | <a href="/">home</a>
       <Routes>
-        <Route path='/' element={<div className='container h100 primary'>Main Page</div>}></Route>
-        <Route path='/company' element={<div className='container h200 bg com'>Introduction</div>}></Route>
-        <Route path='/product' element={<div className='container h200 bg pro'>Introduction Of Product</div>}></Route>
-        <Route path='/community' element={<div className='container h200 bg comm'>Community</div>}></Route>
+        <Route path='/' element={<MainPage userData = {userData} />} />
+        <Route path='/posts/:id' element={<ViewPosts userData = {userData} />} />
       </Routes>
     </div>
   )

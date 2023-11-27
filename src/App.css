@@ -175,3 +175,21 @@ li{list-style: none;}
   background-attachment: fixed;
   background-position: center;
 }
+
+.box{
+  width: 200px;
+  height: 200px;
+  background: skyblue;
+  display: none;
+  position: absolute;
+  left: 50%;
+  right: 50%;
+  transform: translate(-35%, 50%);
+  
+}
+
+.box.view{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
