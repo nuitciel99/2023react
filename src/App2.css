@@ -1,0 +1,37 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  a:link,a:visited{
+    text-decoration: none;
+    color: #333;
+  }
+  
+  ul,li{
+    list-style: none;
+  }
+  
+  .pagenation{
+    display: flex;
+  }
+  
+  .pagenation .num{
+    padding: 10px;
+  }
+  
+  .modalView{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    width: 400px;
+    height: 400px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    padding: 20px;
+  
+  }
