@@ -1,7 +1,7 @@
 # React 다양한 개념
 
 - data.js로 Data 화면에 뿌리기 (App boot01.js, App cardView.js, App detail.js, App imgView.js, App_data.js)
-- hamburger button (App hamburger.js, view.scss)
+- 앱 화면 크기 시 hamburger button (App hamburger.js, view.scss)
 - click 시 +1 / 오늘 날짜 목록 / 모달 (App state.js)
 - props 예제
   1. App props.js : onClick 시 bgc skyblue & 해당 글 모달
@@ -15,7 +15,7 @@
 
   ![posts](./readMeImgs/appPostJs.png)
 
-- App hamburger.js
+- App hamburger.js : 앱 화면 크기 시 hamburger button
 
   ![hamburger](./readMeImgs/hamburger.png)
 
