@@ -1,5 +1,5 @@
 # React 다양한 개념
-
+ 
 - data.js로 Data 화면에 뿌리기 (App boot01.js, App cardView.js, App detail.js, App imgView.js, App_data.js)
 - 앱 화면 크기 시 hamburger button (App hamburger.js, view.scss)
 - click 시 +1 / 오늘 날짜 목록 / 모달 (App state.js)
